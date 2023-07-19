@@ -1,9 +1,6 @@
 package com.example.ejercicio15m5
 
-import android.os.Parcel
-import android.os.Parcelable
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ejercicio15m5.databinding.ItemBinding
@@ -30,9 +27,14 @@ class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+     val item=pokemones[position]
+        holder.bind(item)
     }
-    class ViewHolder(binding: ItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(pokemon: Pokemon) {
+        binding.nombrePokemon.text= pokemon.nombre
+            binding.tipoPokemon.text= pokemon.tipo
+        }
 
     }
 }
