@@ -14,7 +14,7 @@ import com.example.ejercicio15m5.databinding.ItemBinding
 * **/
 
 class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
-   val pokemones = mutableListOf<Pokemon>()
+   var pokemones = mutableListOf<Pokemon>()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,9 +27,14 @@ class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-     val item=pokemones[position]
+     val item= pokemones [position]
         holder.bind(item)
     }
+
+    fun setData(pokedex: List<Pokemon>) {
+    this.pokemones=pokedex.toMutableList()
+    }
+
     class ViewHolder(val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(pokemon: Pokemon) {
         binding.nombrePokemon.text= pokemon.nombre

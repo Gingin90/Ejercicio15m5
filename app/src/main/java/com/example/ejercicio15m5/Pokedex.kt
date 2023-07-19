@@ -1,4 +1,5 @@
-package com.example.kotlinexamples
+package com.example.ejercicio15m5
+
 
 class Pokedex {
     companion object {
