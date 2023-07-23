@@ -3,6 +3,7 @@ package com.example.ejercicio15m5
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.ejercicio15m5.databinding.ItemBinding
 
 /* definiendo clase adapter
@@ -27,18 +28,19 @@ class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-     val item= pokemones [position]
+        val item = pokemones[position]
         holder.bind(item)
     }
 
     fun setData(pokedex: List<Pokemon>) {
-    this.pokemones=pokedex.toMutableList()
+    this.pokemones = pokedex.toMutableList()
     }
 
     class ViewHolder(val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(pokemon: Pokemon) {
         binding.nombrePokemon.text= pokemon.nombre
             binding.tipoPokemon.text= pokemon.tipo
+            binding.imageViewPok.load(pokemon.imgUrl)
         }
 
     }

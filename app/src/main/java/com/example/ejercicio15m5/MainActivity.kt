@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initAdapter()
+
     }
 
     private fun initAdapter() {
@@ -31,7 +32,9 @@ class MainActivity : AppCompatActivity() {
         val pokedex = Pokedex.getPokedex()
         adapter.setData(pokedex)
         binding.RecyclerView.adapter= adapter
-
     }
+
 }
+
+
 
